@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Utenti guests
 
 Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/characters', 'PageController@characters')->name('characters');
@@ -29,6 +27,12 @@ Route::get('/videos', 'PageController@videos')->name('videos');
 Route::get('/news', 'PageController@news')->name('news');
 Route::get('/shop', 'PageController@shop')->name('shop');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Utente registrato
+Auth::routes(['register' => false]);
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    
+    Route::get('/', 'HomeController@index')->name('index');
+    Route::resource('comics', 'ComicController');
+});

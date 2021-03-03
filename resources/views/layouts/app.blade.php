@@ -36,6 +36,7 @@
             <a href="{{ route('news') }}">NEWS</a>
             <a href="{{ route('shop') }}">SHOP</a>
             <a href="#">SEARCH</a>
+            <a href="{{ route('admin.index') }}">ADMIN</a>
         </nav>
 
         <main class="py-4">
