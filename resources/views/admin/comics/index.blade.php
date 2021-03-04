@@ -2,9 +2,10 @@
 
 @section('content')
 
-<div class="container">
-
-    <h1>All posts for admin</h1>
+<div class="container"> 
+    <h1>All comics for admin</h1>
+    <a href="{{route('admin.comics.create')}}" class="btn btn-success">Create a new comic</a>
+</div>
         <table class="table">
             <thead>
                 <tr>
@@ -59,7 +60,6 @@
     
             </tbody>
         </table>
-</div>
     
 @endsection
 

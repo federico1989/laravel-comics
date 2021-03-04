@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+        <div class="container">
             <div class="card">
                 <div class="card-header">{{ ('Dashboard') }}</div>
 
@@ -14,4 +15,5 @@
                     {{ ('You are logged in!') }}
                 </div>
             </div>
+        </div>
 @endsection

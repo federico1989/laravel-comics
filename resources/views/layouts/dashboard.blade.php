@@ -79,15 +79,13 @@
         <main class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-xs-12">
-                        <ul class="list-unstyled">
-                            <li><a href="{{ route('admin.comics.index') }}"><i class="fas fa-mask"></i>Comics</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-9 col-md-9 col-xs-12">
-                        @yield('content')   
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <a href="{{ route('admin.comics.index') }}"><i class="fas fa-mask"></i>Comics</a> 
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                @yield('content')   
             </div>
         </main>
     </div>
