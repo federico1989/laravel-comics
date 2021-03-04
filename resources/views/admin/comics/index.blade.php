@@ -34,26 +34,30 @@
                 @foreach ($comics as $comic)
                 <tr>
                 <td scope="row">{{$comic->id}}</td>
-                <td>{{$post->title}}</td>
-                <td>{{$post->price}}</td>
-                <td>{{$post->availability}}</td>
-                <td>{{$post->description}}</td>
-                <td>{{$post->artist}}</td>
-                <td>{{$post->writer}}</td>
-                <td>{{$post->series}}</td>
-                <td>{{$post->date}}</td>
-                <td>{{$post->volume}}</td>
-                <td>{{$post->size}}</td>
-                <td>{{$post->pages}}</td>
-                <td>{{$post->rated}}</td>
-                <td>{{$post->slug}}</td>
-                <td>{{$post->cover}}</td>
-                <td>{{$post->created_at}}</td>
-                <td>{{$post->updated_at}}</td>
+                <td>{{$comic->title}}</td>
+                <td>{{$comic->price}}</td>
+                <td>{{$comic->availability}}</td>
+                <td>{{$comic->description}}</td>
+                <td>{{$comic->artist}}</td>
+                <td>{{$comic->writer}}</td>
+                <td>{{$comic->series}}</td>
+                <td>{{$comic->date}}</td>
+                <td>{{$comic->volume}}</td>
+                <td>{{$comic->size}}</td>
+                <td>{{$comic->pages}}</td>
+                <td>{{$comic->rated}}</td>
+                <td>{{$comic->slug}}</td>
+                <td>{{$comic->cover}}</td>
+                <td>{{$comic->created_at}}</td>
+                <td>{{$comic->updated_at}}</td>
                 <td>
-                    <a href="#" class="btn btn-primary" style="margin-bottom: 10px">Leggi</a>
-                    <a href="#" class="btn btn-warning" style="margin-bottom: 10px">Modifica</a>
-                    <a href="#" class="btn btn-danger">Elimina</a>
+                    <a href="{{ route('admin.comics.show', ['comic'=>$comic->slug]) }}" class="btn btn-primary" style="margin-bottom: 10px">Leggi</a>
+                    <a href="{{ route('admin.comics.edit', ['comic'=>$comic->slug]) }}" class="btn btn-warning" style="margin-bottom: 10px">Modifica</a>
+                    <form action="{{ route('admin.comics.destroy', ['comic'=>$comic->id])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" name="button" class="btn btn-danger">Elimina</button>
+                    </form>
                 </td>
                 </tr>
             @endforeach
