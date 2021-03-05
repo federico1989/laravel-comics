@@ -1,0 +1,20 @@
+main{
+    .container-cards {
+        background-color: #1c1c1c;
+        justify-content: space-around;
+        .comic-card {
+            width: 19%;
+            margin-top: 40px;
+            img {
+                width:100%;
+            }
+            .p-title {
+                color: white;
+            }
+            p {
+                color: #0282F9
+            }
+        }
+    }
+
+}

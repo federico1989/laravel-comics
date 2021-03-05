@@ -10953,6 +10953,29 @@ nav a {
 }
 
 footer {
-  height: 200px;
+  height: 400px;
+  background-image: url("/img/footer-bg.jpg");
+}
+
+main .container-cards {
+  background-color: #1c1c1c;
+  justify-content: space-around;
+}
+
+main .container-cards .comic-card {
+  width: 19%;
+  margin-top: 40px;
+}
+
+main .container-cards .comic-card img {
+  width: 100%;
+}
+
+main .container-cards .comic-card .p-title {
+  color: white;
+}
+
+main .container-cards .comic-card p {
+  color: #0282F9;
 }
 

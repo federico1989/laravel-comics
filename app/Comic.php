@@ -11,6 +11,6 @@ class Comic extends Model
       return 'slug';
     }
 
-    protected $fillable = ['title' , 'price', 'availability', 'description', 'artist', 'writer', 'series', 'date', 'volume', 'size', 'pages', 'rated', 'slug'];
+    protected $fillable = ['title' , 'price', 'availability', 'description', 'artist', 'writer', 'series', 'date', 'volume', 'size', 'pages', 'rated', 'slug', 'cover'];
 
 }

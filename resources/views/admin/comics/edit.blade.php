@@ -2,7 +2,7 @@
     @section('content')
         <div class="container">
             <h1>Modifica il comic comic</h1>
-            <form action="{{ route('admin.comics.update', ['comic'=>$comic->slug]) }}" method="post">
+            <form action="{{ route('admin.comics.update', ['comic'=>$comic->slug]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -21,6 +21,15 @@
                     <input class="@error('title') is-invalid @enderror" name="title" type="text" placeholder="Inserisci il titolo" value="{{$comic->title}}">
                     <small class="form-text text-muted d-block">Titolo del comic</small>
                     @error('title')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="cover">Immagine del comic</label>
+                    <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="coverImgHelper">
+                    <small id="coverImgHelper" class="form-text text-muted">Modifica immagine</small>
+                    @error('cover')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

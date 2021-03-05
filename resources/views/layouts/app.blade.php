@@ -26,7 +26,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <a href="{{ route('homepage') }}">Logo</a>
+            <a href="{{ route('homepage') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
             <a href="{{ route('characters') }}">CHARACTERS</a>
             <a href="{{ route('comics') }}">COMICS</a>
             <a href="{{ route('movies') }}">MOVIES</a>

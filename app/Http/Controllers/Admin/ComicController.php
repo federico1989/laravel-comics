@@ -6,6 +6,7 @@ use App\Comic;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ComicController extends Controller
 {
@@ -53,10 +54,13 @@ class ComicController extends Controller
             'size' => 'required',
             'pages' => 'required',
             'rated' => 'required',
-            'title' => 'required'
+            'nullable | mimes:jpeg,jpg,png,gif | max:500'
         ]);
 
         $validation['slug'] = $slug;
+        $cover = Storage::disk('public')->put('comics_img', $request->cover);
+        $validation['cover'] = $cover;
+
         Comic::create($validation);
         $comic = Comic::orderBy('id', 'desc')->first();
 
@@ -94,10 +98,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        Storage::delete($comic->cover);
         $comics = $request->all();
 
         $slug = Str::slug($request->title);
         $comic['slug'] = $slug;
+
+        $cover = Storage::disk('public')->put('comics_img', $request->cover);
+        $comics['cover'] = $cover;
+
 
         $comic->update($comics);
 

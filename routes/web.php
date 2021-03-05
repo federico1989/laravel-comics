@@ -19,6 +19,8 @@ Route::get('/', 'PageController@index')->name('homepage');
 Route::get('/characters', 'PageController@characters')->name('characters');
 //La route che ci serve da utilizzare
 Route::get('/comics', 'ComicController@comics')->name('comics');
+//La route che ci serve da visualizzare
+Route::get('/comics/show/{comic}', 'ComicController@show')->name('comics.show');
 
 Route::get('/movies', 'PageController@movies')->name('movies');
 Route::get('/tv', 'PageController@tv')->name('tv');

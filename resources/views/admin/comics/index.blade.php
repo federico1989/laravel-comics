@@ -47,13 +47,13 @@
                 <td>{{$comic->pages}}</td>
                 <td>{{$comic->rated}}</td>
                 <td>{{$comic->slug}}</td>
-                <td>{{$comic->cover}}</td>
+                <td><img src="{{asset('storage/' . $comic->cover )}}" alt=""></td>
                 <td>{{$comic->created_at}}</td>
                 <td>{{$comic->updated_at}}</td>
                 <td>
                     <a href="{{ route('admin.comics.show', ['comic'=>$comic->slug]) }}" class="btn btn-primary" style="margin-bottom: 10px">Leggi</a>
                     <a href="{{ route('admin.comics.edit', ['comic'=>$comic->slug]) }}" class="btn btn-warning" style="margin-bottom: 10px">Modifica</a>
-                    <form action="{{ route('admin.comics.destroy', ['comic'=>$comic->id])}}" method="post">
+                    <form action="{{ route('admin.comics.destroy', ['comic'=>$comic->slug])}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" name="button" class="btn btn-danger">Elimina</button>
